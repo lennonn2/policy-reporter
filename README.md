@@ -19,10 +19,9 @@ The repo contains three folders but it's only recommended to look at `/FiniteSta
 7. I added 2 functions `getActiveState` and `isActiveStateValid`
 8. I added generic types to the FSM class to make it more difficult to accidentally pass in incorrect props
 9. I revisited my existing error handling with the following changes:
-
-- the case when the character the machine is trying to process isn't in the alphabet. In the original modThree function, I checked this up-front for the entire string but I feel like checking at the character level is more performant, especially is the alphabet is larger.
-- The case where a next state doesn't exist for a given state and character.
-- I had error handling in place for when an empty input string was passed into `processString` but a quick Google told me that empty strings are valid inputs into FSM so I removed that and made a note to test that the state doesn't change when an empty string is passed in in my unit tests.
+    - the case when the character the machine is trying to process isn't in the alphabet. In the original modThree function, I checked this up-front for the entire string but I feel like checking at the character level is more performant, especially is the alphabet is larger.
+    - The case where a next state doesn't exist for a given state and character.
+    - I had error handling in place for when an empty input string was passed into `processString` but a quick Google told me that empty strings are valid inputs into FSM so I removed that and made a note to test that the state doesn't change when an empty string is passed in in my unit tests.
 
 10. Wrote unit tests for the FSM module
 11. I finished everything up and left it overnight before taking another look. I realised that taking a string input was not the best idea and that I should be passing in an array. This allowed me to apply a generic type to the alphabet and the interface made a lot more sense. Using a string was heavily influenced by the `modThree` function and while I can definitely see cases where passing a string would be beneficial, I think arrays would be a better interface for most use cases and it's quite easy to convert a string to an array.
