@@ -1,7 +1,6 @@
 {
   "name": "policy-reporter",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "vitest": "^2.1.8"
